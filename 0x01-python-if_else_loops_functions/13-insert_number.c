@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
 /**
  * insert_node - insert node ascending order with value number
  * @head: head pointer
