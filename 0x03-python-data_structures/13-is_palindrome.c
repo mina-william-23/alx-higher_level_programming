@@ -3,15 +3,36 @@
 #include "lists.h"
 
 /**
+ * reverse_list - reverse single linked list
+ * @head: head of single linked list
+ * Return: new head (tail of old one)
+ */
+listint_t *reverse_list(listint_t **head)
+{
+	listint_t *prev, *curr, *nex;
+
+	prev = NULL;
+	nex = *head;
+	while (nex)
+	{
+		curr = nex;
+		nex = nex->next;
+		curr->next = prev;
+		prev = curr;
+	}
+	return (curr);
+}
+
+/**
  * is_palindrome - check if linked list is palindrom
  * @head: linked list
  * Return: 0 if not palindrome 1 is palindrome
  */
 int is_palindrome(listint_t **head)
 {
-	int len_list = 0, len_half;
-	listint_t *current = *head;
-	int i = 0, j = 0, *arr;
+	int len_list = 0, len_half, flag = 1;
+	listint_t *current = *head, *other_half, *reversed_half;
+	int i = 0;
 
 	while (current)
 	{
@@ -22,24 +43,28 @@ int is_palindrome(listint_t **head)
 		return (1);
 
 	len_half = len_list / 2;
-	arr = malloc(sizeof(int) * len_half);
-	current = *head;
-	while (current)
-	{
-		if (i < len_half)
-			arr[j++] = current->n;
-		else if (i > len_half || (i == len_half && len_list % 2 == 0))
-		{
-			if (arr[--j] != current->n)
-			{
-				free(arr);
-				return (0);
-			}
-		}
-		i++;
-		current = current->next;
+	other_half = *head;
+	while (i++ < len_half)
+		other_half = other_half->next;
+	if (len_list % 2)
+		other_half = other_half->next;
 
+	reversed_half = reverse_list(&other_half);
+	other_half = reversed_half;
+
+	current = *head;
+	i = 0;
+	while (i++ < len_half)
+	{
+		if (current->n != reversed_half->n)
+		{
+			flag = 0;
+			break;
+		}
+		current = current->next;
+		reversed_half = reversed_half->next;
 	}
-	free(arr);
-	return (1);
+
+	reverse_list(&other_half);
+	return (flag);
 }
