@@ -25,9 +25,9 @@ int is_palindrome(listint_t **head)
 	current = *head;
 	while (current)
 	{
-		if (i < len_list / 2)
+		if (i < (int)len_list / 2)
 			arr[j++] = current->n;
-		else if (i == len_list / 2 && len_list % 2)
+		else if (i == (int)len_list / 2 && len_list % 2)
 		{
 			current = current->next;
 			i++;
