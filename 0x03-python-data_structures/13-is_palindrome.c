@@ -30,9 +30,8 @@ listint_t *reverse_list(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	int len_list = 0, len_half, flag = 1;
+	int len_list = 0, i = 0, len_half, flag = 1;
 	listint_t *current = *head, *other_half, *reversed_half;
-	int i = 0;
 
 	while (current)
 	{
