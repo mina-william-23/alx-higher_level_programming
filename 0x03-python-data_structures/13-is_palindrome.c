@@ -12,7 +12,6 @@ listint_t *reverse_list(listint_t **head)
 	listint_t *prev, *curr, *nex;
 
 	prev = NULL;
-	curr = NULL;
 	nex = *head;
 	while (nex)
 	{
@@ -21,7 +20,7 @@ listint_t *reverse_list(listint_t **head)
 		curr->next = prev;
 		prev = curr;
 	}
-	return (curr);
+	return (prev);
 }
 
 /**
