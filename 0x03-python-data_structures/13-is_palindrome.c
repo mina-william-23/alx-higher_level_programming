@@ -9,7 +9,7 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int len_list = 0;
+	int len_list = 0, len_half;
 	listint_t *current = *head;
 	int i = 0, j = 0, *arr;
 
@@ -21,19 +21,14 @@ int is_palindrome(listint_t **head)
 	if (len_list <= 1)
 		return (1);
 
-	arr = malloc(sizeof(int) * (len_list / 2));
+	len_half = len_list / 2;
+	arr = malloc(sizeof(int) * len_half);
 	current = *head;
 	while (current)
 	{
-		if (i < len_list / 2)
+		if (i < len_half)
 			arr[j++] = current->n;
-		else if (i == len_list / 2 && len_list % 2)
-		{
-			current = current->next;
-			i++;
-			continue;
-		}
-		else
+		else if (i > len_half || (i == len_half && len_list % 2 == 0))
 		{
 			if (arr[--j] != current->n)
 			{
