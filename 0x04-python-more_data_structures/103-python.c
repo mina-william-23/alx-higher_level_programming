@@ -44,6 +44,6 @@ void print_python_list(PyObject *p)
 		type_name = Py_TYPE(element)->tp_name;
 		printf("Element %zd: %s\n", i, type_name);
 		if (strcmp(type_name, "bytes") == 0)
-			print_python_bytes(element);	
+			print_python_bytes(element);
 	}
 }
