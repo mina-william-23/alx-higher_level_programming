@@ -1,5 +1,5 @@
 #!/bin/python3
-''' module 0-saqure.py creates square class '''
+''' Square module 0-saqure.py creates square class '''
 
 
 class Square:
