@@ -64,11 +64,11 @@ class Square:
                 pos += '\n'
         return pos
 
-    def __eg__(self, square2):
+    def __eq__(self, square2):
         ''' overload __eq__ method based on area '''
         return self.area() == square2.area()
 
-    def __nq__(self, square2):
+    def __ne__(self, square2):
         ''' overload __nq__ method based on area'''
         return self.area() != square2.area()
 
