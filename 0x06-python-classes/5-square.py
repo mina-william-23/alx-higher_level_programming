@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 ''' module 0-saqure.py creates square class '''
 
 
