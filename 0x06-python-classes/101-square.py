@@ -53,9 +53,9 @@ class Square:
 
     def __str__(self):
         ''' overload __str__ method '''
-        if (self.__size == 0):
-            return '\n'
         pos = ''
+        if (self.__size == 0):
+            return pos
         pos += '\n' * self.__position[1]
         for i in range(self.__size):
             pos += ' ' * self.__position[0]
