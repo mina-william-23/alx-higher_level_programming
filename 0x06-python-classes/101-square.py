@@ -60,6 +60,6 @@ class Square:
         for i in range(self.__size):
             pos += ' ' * self.__position[0]
             pos += '#' * self.__size
-            if i != (self.__size - 1):
+            if i is not self.__size - 1:
                 pos += '\n'
         return pos
