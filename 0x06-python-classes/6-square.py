@@ -1,6 +1,7 @@
 #!/bin/python3
 ''' module 0-saqure.py creates square class '''
 
+
 class Square:
     ''' sqaure class doc '''
     def __init__(self, size=0, position=(0, 0)):
@@ -26,7 +27,7 @@ class Square:
     def position(self):
         ''' get position '''
         return self.__position
-    
+
     @position.setter
     def position(self, value):
         if not isinstance(value, tuple) or len(value) != 2 \
@@ -34,7 +35,6 @@ class Square:
                 or any(n < 0 for n in value):
             raise TypeError('position must be a tuple of 2 positive integers')
         self.__position = value
-
 
     def area(self):
         ''' compute area of square '''
