@@ -3,5 +3,5 @@
 
 
 class Square:
-    """ sqaure class doc """
+    """ Sqaure class doc """
     pass
