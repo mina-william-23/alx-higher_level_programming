@@ -18,7 +18,9 @@ class Student:
 
     def to_json(self, attrs=None):
         ''' return instance attributes as dict '''
-        if not attrs or any([not isinstance(x, str) for x in attrs]):
+        if not attrs \
+            or not isinstance(attrs, list) \
+            or any([not isinstance(x, str) for x in attrs]):
             return self.__dict__
         d = {}
         for att in attrs:
