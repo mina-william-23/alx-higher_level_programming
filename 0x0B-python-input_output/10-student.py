@@ -18,12 +18,6 @@ class Student:
 
     def to_json(self, attrs=None):
         ''' return instance attributes as dict '''
-        if not attrs \
-            or type(attrs) != list \
-            or any(not isinstance(x, str) for x in attrs):
+        if type(attrs) != list or any([type(x) != str for x in attrs]):
             return self.__dict__
-        d = {}
-        for att in attrs:
-            if hasattr(self, att):
-                d[att] = self.__dict__[att]
-        return d
+        return {k: v for k, v in self.__dict__.items() if k in attrs}
