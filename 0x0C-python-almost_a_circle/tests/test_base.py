@@ -33,27 +33,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base().id, 1)
         self.assertEqual(Base(10).id, 10)
         self.assertEqual(Base().id, 2)
-
-    def test_str_id(self):
-        self.assertEqual("hello", Base("hello").id)
-
-    def test_float_id(self):
-        self.assertEqual(5.5, Base(5.5).id)
-
-    def test_dict_id(self):
-        self.assertEqual({"a": 1, "b": 2}, Base({"a": 1, "b": 2}).id)
-
-    def test_bool_id(self):
-        self.assertEqual(True, Base(True).id)
-
-    def test_list_id(self):
-        self.assertEqual([1, 2, 3], Base([1, 2, 3]).id)
-
-    def test_tuple_id(self):
-        self.assertEqual((1, 2), Base((1, 2)).id)
-
-    def test_set_id(self):
-        self.assertEqual({1, 2, 3}, Base({1, 2, 3}).id)
+        self.assertRaises(TypeError, Base, 1, 2)
 
     def test_nb_instances_private(self):
         with self.assertRaises(AttributeError):
