@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
 
 
 class TestBase(unittest.TestCase):
@@ -38,3 +39,7 @@ class TestBase(unittest.TestCase):
     def test_nb_instances_private(self):
         with self.assertRaises(AttributeError):
             print(Base(10).__nb_instances)
+
+    def test_to_json_string_rectangle_type(self):
+        r = Rectangle(10, 7, 2, 8, 6)
+        self.assertEqual(str, type(Base.to_json_string([r.to_dictionary()])))
