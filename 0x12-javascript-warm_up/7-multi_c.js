@@ -8,4 +8,3 @@ if (isNaN(agv)) {
     console.log('C is fun');
   }
 }
-
