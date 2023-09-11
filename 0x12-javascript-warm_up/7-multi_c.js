@@ -4,8 +4,7 @@ if (typeof agv !== 'undefined') {
   if (isNaN(agv)) {
     console.log('Missing number of occurrences');
   } else {
-    agv = Number(agv);
-    while (agv--) {
+    for (let i = 0; i < agv; i++) {
       console.log('C is fun');
     }
   }
