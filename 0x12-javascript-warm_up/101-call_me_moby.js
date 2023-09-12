@@ -4,7 +4,4 @@ exports.callMeMoby = function (x, theFunction) {
     theFunction();
     x--;
   }
-  //for (let i = 0; i < x; i++) {
-    //theFunction();
-  //}
 };
