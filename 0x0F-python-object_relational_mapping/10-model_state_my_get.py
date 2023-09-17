@@ -18,7 +18,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     data = session.query(State).filter(State.name == search_name).first()
-    if data: 
+    if data:
         print("{}".format(data.id))
     else:
         print('Not found')
