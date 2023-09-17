@@ -13,9 +13,12 @@ if __name__ == "__main__":
 
     db = MySQLdb.connect(host=ht, port=3306, user=usr, passwd=pswd, db=dbs)
     cr = db.cursor()
-    # this approach %s placeholder and tuple or list to get attribute from ( , )
+    # this approach %s placeholder and tuple or list to get attribute
+    # from tuple ( , ) or list [ ]
     # is safe from sql injection
-    cr.execute("SELECT * FROM states WHERE name = %s ORDER BY id", (search_name, ))
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id"
+    data = [search_name]
+    cr.execute(query, data)
     ''' fetchall return tuple of tuples'''
     for row in cr.fetchall():
         print(row)
