@@ -16,8 +16,8 @@ if __name__ == "__main__":
         usr, paswd, dt, pool_pre_ping=True))
     Session = sessionmaker(bind=engine)
     session = Session()
-    lsiana = State(name='Louisiana')
+    n_state = State(name='Louisiana')
     # this will add it once only if you run script again
     # it will print None as it will not be added again
-    session.add(lsiana)
-    print(lsiana.id)
+    session.add(n_state)
+    print(n_state.id)
