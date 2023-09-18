@@ -20,6 +20,7 @@ if __name__ == "__main__":
     # this will add it once only if you run script again
     # it will print None as it will not be added again
     session.add(n_state)
+    session.commit()
     data = session.query(State).filter(State.name == n_state.name).first()
     if data:
         print("{}".format(data.id))
