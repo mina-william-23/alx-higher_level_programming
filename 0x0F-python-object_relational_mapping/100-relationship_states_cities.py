@@ -27,3 +27,4 @@ if __name__ == "__main__":
     # which is set in relationship in State class
     session.add(City(name="San Francisco", state=State(name="California")))   
     session.commit()
+    session.close()
