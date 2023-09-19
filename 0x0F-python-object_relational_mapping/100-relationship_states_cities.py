@@ -26,6 +26,7 @@ if __name__ == "__main__":
     # another way to use city backref attribute state
     # which is set in relationship in State class
     # session.add(City(name="San Francisco", state=State(name="California")))
+
     new_state = State(name='California')
     new_city = City(name='San Francisco')
     new_state.cities.append(new_city)
