@@ -19,8 +19,8 @@ if __name__ == "__main__":
     session = Session()
 
     # one way to use cities list in states table
-    new_state = State(name='CCalifornia')
-    new_state.cities.append(City(name='SSan Francisco'))
+    new_state = State(name='California')
+    new_state.cities.append(City(name='San Francisco'))
     session.add(new_state)
 
     # another way to use city backref attribute state
