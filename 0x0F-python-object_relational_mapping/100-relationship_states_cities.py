@@ -2,6 +2,8 @@
 """
 State module
 """
+
+
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from relationship_state import Base, State
@@ -30,6 +32,7 @@ def create_state_cities():
     session.add(new_city)
     session.commit()
     session.close()
+
 
 if __name__ == "__main__":
     create_state_cities()
