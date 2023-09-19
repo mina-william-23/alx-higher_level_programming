@@ -14,6 +14,7 @@ if __name__ == "__main__":
     dt = argv[3]
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
         usr, paswd, dt, pool_pre_ping=True))
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
@@ -24,5 +25,5 @@ if __name__ == "__main__":
 
     # another way to use city backref attribute state
     # which is set in relationship in State class
-    session.add(City(name='San Francisco', state=State(name='California')))
+    session.add(City(name="San Francisco", state=State(name="California")))   
     session.commit()
