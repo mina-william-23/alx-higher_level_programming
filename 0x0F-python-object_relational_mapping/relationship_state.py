@@ -6,7 +6,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from relationship_city import Base, City
 
-Base = declarative_base()
+# this Base will cause error so always use one Base class
+# and import it everywhere
+# Base = declarative_base()
+# iam keeping this to remember that error
 
 
 class State(Base):
