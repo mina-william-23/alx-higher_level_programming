@@ -10,6 +10,7 @@ def connect_grabs():
     user_name = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
+    searchName = sys.argv[4]
 
     db = MySQLdb.connect(
         host='localhost',
@@ -21,8 +22,8 @@ def connect_grabs():
 
     mycursor = db.cursor()
     mycursor.execute('SELECT * FROM states\
-                     WHERE name LIKE BINARY "N%"\
-                     ORDER BY id ASC')
+                     WHERE BINARY name = "{}"\
+                     ORDER BY id ASC'.format(searchName))
     data = mycursor.fetchall()
     for row in data:
         print(row)
