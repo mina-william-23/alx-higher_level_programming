@@ -28,7 +28,7 @@ def connect_grabs():
 
     # execute passed query and tuple to avoid sql injection
     mycursor.execute(query, query_variable_tuple)
-    
+
     data = mycursor.fetchall()
     for row in data:
         print(row)
