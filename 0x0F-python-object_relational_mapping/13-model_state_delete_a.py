@@ -21,10 +21,12 @@ def fetch_all():
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).filter(
-        State.name.like("%a%")).order_by(State.id).all()
-    for state in states:
-        print('{}: {}'.format(state.id, state.name))
+    # synchronize session = false , don't reflect changes on actual database
+    # i will reflect that with commit()
+    session.query(State).\
+        filter(State.name.like("%a%")).\
+        delete(synchronize_session=False)
+    session.commit()
     session.close()
 
 
