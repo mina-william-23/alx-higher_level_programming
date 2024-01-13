@@ -14,8 +14,6 @@ def fetch_all():
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    state_id_edit = 2
-    state_new_name = 'New Mexico'
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
         username, password, database), pool_pre_ping=True)
@@ -23,9 +21,10 @@ def fetch_all():
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    session.query(State).\
-        filter_by(id=state_id_edit).update({State.name: state_new_name})
-    session.commit()
+    states = session.query(State).filter(
+        State.name.like("%a%")).order_by(State.id).all()
+    for state in states:
+        print('{}: {}'.format(state.id, state.name))
     session.close()
 
 
