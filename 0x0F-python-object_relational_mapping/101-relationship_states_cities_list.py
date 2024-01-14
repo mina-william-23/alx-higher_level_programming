@@ -16,7 +16,7 @@ def fetch_all():
     for state in states:
         print('{}: {}'.format(state.id, state.name))
         for city in state.cities:
-            print('    {}: {}'.format(city.id, city.name))
+            print('\t{}: {}'.format(city.id, city.name))
     session.close()
 
 
