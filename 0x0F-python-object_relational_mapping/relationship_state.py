@@ -27,5 +27,5 @@ class State(Base):
                 nullable=False)
     name = Column(String(128), nullable=False)
     cities = relationship('City',
-                          back_populates='states',
+                          back_populates='state',
                           cascade='all, delete')
