@@ -6,12 +6,8 @@ contained in the database hbtn_0e_101_usa
 
 def fetch_all():
     """Fetchs all states"""
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        username, password, database), pool_pre_ping=True)
+        sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
 
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
