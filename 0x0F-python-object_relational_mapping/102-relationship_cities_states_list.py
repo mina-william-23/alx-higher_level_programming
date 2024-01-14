@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-script that lists all State objects, and corresponding City objects,
-contained in the database hbtn_0e_101_usa
+script that lists all City objects from the database hbtn_0e_101_usa
  """
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
@@ -22,12 +21,9 @@ def fetch_all():
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).order_by(State.id).all()
-    for state in states:
-        print('{}: {}'.format(state.id, state.name))
-        for city in state.cities:
-            print('\t{}: {}'.format(city.id, city.name))
-
+    cities = session.query(City).order_by(City.id).all()
+    for city in cities:
+        print('{}: {} -> {}'.format(city.id, city.name, city.state.name))
     session.close()
 
 
