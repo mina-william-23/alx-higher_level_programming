@@ -1,13 +1,7 @@
 #!/usr/bin/python3
-"""
-script that lists all State objects, and corresponding City objects,
+"""script that lists all State objects, and corresponding City objects,
 contained in the database hbtn_0e_101_usa
  """
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
-from relationship_state import Base, State
-from relationship_city import City
-import sys
 
 
 def fetch_all():
@@ -32,4 +26,9 @@ def fetch_all():
 
 
 if __name__ == "__main__":
+    from sqlalchemy.orm import sessionmaker
+    from sqlalchemy import create_engine
+    from relationship_state import Base, State
+    from relationship_city import City
+    import sys
     fetch_all()
