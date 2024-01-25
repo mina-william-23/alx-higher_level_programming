@@ -1,3 +1,3 @@
 #!/bin/bash
-# -X specify method
-curl -s -X DELETE "$1"
+# I for header
+curl -sI "$1" | grep Allow | cut -d' ' -f2-
