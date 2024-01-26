@@ -1,3 +1,3 @@
 #!/bin/bash
-# Sends a request to a URL passed as an argument, and displays only the status code of the response.
-curl -sI -w "%{http_code}\n" -o /dev/null "$1"
+# Sends a request to a URL, displays only the status code of the response.
+curl -sI -o /dev/null  -w "%{http_code}" "$1"
