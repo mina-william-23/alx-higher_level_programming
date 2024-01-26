@@ -1,3 +1,3 @@
 #!/bin/bash
-# makes a request to 0.0.0.0:5000/catch_me
-curl -sL -o "0.0.0.0:5000/catch_me"
+# Sends a request to a URL, displays only the status code of the response.
+curl -sI -o /dev/null  -w "%{http_code}" "$1"
