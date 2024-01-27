@@ -11,9 +11,13 @@ if __name__ == "__main__":
     import requests
     import sys
 
-    url = sys.argv[1]
-    request = requests.get(url)
-    if request.status_code >= 400:
-        print('Error code: {}'.format(request.status_code))
-    else:
-        print(request.text)
+    import requests
+    from sys import argv
+    r = requests.get(argv[1], timeout=5)
+    print(r.headers.get('X-Request-Id'))
+    # url = sys.argv[1]
+    # request = requests.get(url)
+    # if request.status_code >= 400:
+    #    print('Error code: {}'.format(request.status_code))
+    # else:
+    #    print(request.text)
