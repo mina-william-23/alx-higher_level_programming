@@ -1,13 +1,16 @@
 #!/usr/bin/node
 const request = require('request');
-const id = process.argv[2];
-const link = `https://swapi-api.hbtn.io/api/films/${id}`;
+const link = process.argv[2];
 
 request(link, (error, response, body) => {
-  if (error) {
-    console.log(error);
-  } else {
-    const json = JSON.parse(body);
-    console.log(json.title);
+  if (!error) {
+    const results = JSON.parse(body).results;
+    let counter = 0;
+    for (const movie of results) {
+      if (movie.characters.find(value => value.endsWith('18/'))) {
+        counter++;
+      }
+    }
+    console.log(counter);
   }
 });
