@@ -13,9 +13,9 @@ $(function () {
 });
 
 function translate() {
-  const url_api = 'https://hellosalut.stefanbohacek.dev/';
-  const lang_api = $('INPUT#language_code').val();
-  $.get(url_api, {lang: lang_api}, function (data) {
+  const urlApi = 'https://hellosalut.stefanbohacek.dev/';
+  const langApi = $('INPUT#language_code').val();
+  $.get(urlApi, {lang: langApi}, function (data) {
     $('DIV#hello').text(data.hello);
   });
 }
